@@ -1,6 +1,5 @@
 name: draft
 on: 
-  push:
   pull_request:
     types: opened
     branches:
@@ -15,7 +14,9 @@ jobs:
     steps:
     - uses: actions/checkout@v2  
     
-    - name: Contribute List
-      uses: akhilmhdh/contributors-readme-action@v2.3.6
-      env:
+    - name: "Greet contributor"
+      uses: ibakshay/greet-contributors-action@v3
+      env: 
         GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
+      with: 
+        content: "Draft PR"

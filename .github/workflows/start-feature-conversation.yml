@@ -19,4 +19,6 @@ jobs:
       uses: ibakshay/greet-contributors-action@v3
       env: 
         GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
+      with: 
+        content: "Draft PR"
 

@@ -1,0 +1,21 @@
+name: draft
+on: 
+  push:
+  pull_request:
+    types: opened
+    branches:
+      - 'main'
+      - 'develop'
+
+jobs:
+  test:
+    name: test1
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.draft == true
+    steps:
+    - uses: actions/checkout@v2  
+    
+    - name: Contribute List
+        uses: akhilmhdh/contributors-readme-action@v2.3.6
+        env:
+          GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}

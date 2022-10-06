@@ -1,5 +1,6 @@
 name: draft
 on: 
+  push:
   pull_request:
     types: opened
     branches:
@@ -13,7 +14,15 @@ jobs:
    # if: github.event.pull_request.draft == true
     steps:
     - uses: actions/checkout@v2  
-    
+     
+    - uses: actions/github-script@v6
+      id: set-result
+      with:
+        script: return "Hello!"
+        result-encoding: string
+    - name: Get result
+      run: echo "${{steps.set-result.outputs.result}}"
+      
     - name: "Greet contributor"
       uses: ibakshay/greet-contributors-action@v3
       env: 

@@ -7,5 +7,5 @@ jobs:
     name: test1
     runs-on: ubuntu-latest
     
-     steps:
+    steps:
      - run: ls

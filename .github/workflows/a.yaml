@@ -6,10 +6,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+   # - name: Slack Notification
+   #   uses: slackapi/slack-github-action@v1.23.0
+   #   with:
+   #     channel-id: "U042UTA5NF7" 
+   #     slack-message: "Message webhook url"
+   #   env:
+   #     SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+   
     - name: Slack Notification
-      uses: slackapi/slack-github-action@v1.23.0
-      with:
-        channel-id: "U042UTA5NF7" 
-        slack-message: "Message webhook url"
+      uses: rtCamp/action-slack-notify@v2
       env:
-        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
+        SLACK_CHANNEL: U042UTA5NF7
+        SLACK_MESSAGE: "Message webhook url"

@@ -9,7 +9,7 @@ jobs:
     - name: Slack Notification
       uses: slackapi/slack-github-action@v1.23.0
       with:
-        channel-id: 'D0430NT98MS'   
+        channel-id: 'D043N0YDYTA'   
         slack-message: "Message"
       env:
         SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}

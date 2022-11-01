@@ -18,5 +18,5 @@ jobs:
       uses: rtCamp/action-slack-notify@v2
       env:
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
-        SLACK_CHANNEL: U042UTA5NF7
+        SLACK_CHANNEL: as
         SLACK_MESSAGE: "Message webhook url"

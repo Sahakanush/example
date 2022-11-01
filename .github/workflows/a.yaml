@@ -10,6 +10,6 @@ jobs:
       uses: slackapi/slack-github-action@v1.23.0
       with:
         channel-id: U042Y6MC4UB  
-        slack-message: "Message"
+        slack-message: "Message11"
       env:
-        SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}

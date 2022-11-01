@@ -9,7 +9,7 @@ jobs:
     - name: Slack Notification
       uses: slackapi/slack-github-action@v1.23.0
       with:
-        channel-id: U042Y6MC4UB  
-        slack-message: "Message11"
+        channel-id: "U042UTA5NF7" 
+        slack-message: "Message webhook url"
       env:
         SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}

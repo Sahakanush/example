@@ -8,8 +8,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - run: echo "github_actor=${{ github.actor }}" >> $GENV
-    - run: echo ${{ github_actor }}
+    - run: echo "github_actor=${{ github.actor }}" >> $GITHUB_ENV
+    - run: echo ${{ env.github_actor }}
     
     - name: Slack Notification
       uses: slackapi/slack-github-action@v1.23.0

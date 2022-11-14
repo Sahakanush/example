@@ -1,0 +1,19 @@
+name: Slack Notification
+
+on: push
+
+jobs:
+  slackNotification:
+    name: Slack Notification
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - run: echo $github.actor
+    
+    - name: Slack Notification
+      uses: slackapi/slack-github-action@v1.23.0
+      with:
+        channel-id: U042Y6MC4UB     # the member id of the person to whom the letter will be addressed․   
+        slack-message: "Message"
+      env:
+        SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}

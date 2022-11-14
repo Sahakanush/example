@@ -6,7 +6,7 @@ jobs:
   slackNotification:
     name: Slack Notification
     runs-on: ubuntu-latest
-    steps:
+    steps:   
     - uses: actions/checkout@v2
     - run: echo "github_actor=${{ github.actor }}" >> $GITHUB_ENV
     - run: echo ${{ github.event.pusher.email }}

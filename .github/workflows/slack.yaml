@@ -2,7 +2,7 @@ name: Slack Notification22
 
 on: push
 
-jobs:
+jobs: 
   slackNotification:
     name: Slack Notification
     runs-on: ubuntu-latest

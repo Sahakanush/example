@@ -1,26 +1,43 @@
-name: Slack Notification22
-
-on: push
-
-jobs: 
+on: 
+   push:
+   
+name: Slack Notification Demo
+jobs:
   slackNotification:
     name: Slack Notification
     runs-on: ubuntu-latest
-    steps:   
-    - uses: actions/checkout@v2
-    - name: Channel name
-      run: |
-        echo "mail=${{ github.event.pusher.email }}" >> $GITHUB_ENV
-    - uses: jungwinter/split@v2
-      id: split
-      with:
-          msg: ${{ env.mail }}
+    steps:
+      # - name: get email
+      #   id: get-email
+      #   uses: evvanErb/get-github-email-by-username-action@v1.25
+      #   with:
+      #     github-username: ${{ github.actor }}
+
+      # - name: compute slack channel name
+      #   id: compute-slack-channel-name
+      #   run: |
+      #     echo "::set-output name=cahnnel-name::$(echo ${{ steps.get-email.outputs.email }} | sed 's/@.*//')"
+      
+      # - uses: cinotify/github-action@main
+      #   with:
+      #     to: 'example@example.com'
+      #     subject: 'building main'
+      #     body: 'This is a notification from GitHub actions.'
+      
+      - name: Get Github Actor mail address
+        run: |
+          echo "mail_address=${{ github.event.pusher.email }}" >> $GITHUB_ENV
+          
+      - uses: jungwinter/split@v2
+        id: split
+        with:
+          msg: ${{ env.mail_address }}
           separator: '@'
-    - run: echo ${{ steps.split.outputs._0 }}
-    
-    - name: Slack Notification
-      uses: rtCamp/action-slack-notify@v2
-      env:
+      - run: echo ${{ env.mail_address }}
+          
+      - name: Slack Notification
+        uses: rtCamp/action-slack-notify@v2
+        env:
           SLACK_MSG_AUTHOR: ${{ github.actor }}
           SLACK_CHANNEL: ${{ steps.split.outputs._0 }}
           #SLACK_CHANNEL: ${{ steps.compute-slack-channel-name.outputs.cahnnel-name }}

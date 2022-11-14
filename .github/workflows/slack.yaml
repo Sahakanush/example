@@ -9,7 +9,7 @@ jobs:
     steps:   
     - uses: actions/checkout@v2
     - name: Channel name
-    - run: |
+      run: |
         echo "github_actor=${{ github.actor }}" >> $GITHUB_ENV
         echo "mail = ${{ github.event.pusher.email }}" >>  $GITHUB_ENV
         echo ${{ env.mail }} | awk -F "@" '{ print $1 }' > 

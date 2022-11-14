@@ -8,14 +8,26 @@ jobs:
     runs-on: ubuntu-latest
     steps:   
     - uses: actions/checkout@v2
-    - run: echo "github_actor=${{ github.actor }}" >> $GITHUB_ENV
-    - run: echo ${{ github.event.pusher.email }}
+    - name: Channel name
+    - run: |
+        echo "github_actor=${{ github.actor }}" >> $GITHUB_ENV
+        echo "mail = ${{ github.event.pusher.email }}" >>  $GITHUB_ENV
+        echo ${{ env.mail }} | awk -F "@" '{ print $1 }' > 
+        echo "channel = $( ${{ ${{ env.mail }} | awk -F "@" '{ print $1 }' )
+    
     - run: echo ${{ env.github_actor }}
+    - run: echo ${{ env.mail }}
+    - run: echo ${{ env.channel }}
     
     - name: Slack Notification
-      uses: slackapi/slack-github-action@v1.23.0
-      with:
-        channel-id: U042Y6MC4UB     # the member id of the person to whom the letter will be addressed․   
-        slack-message: "Message"
+      uses: rtCamp/action-slack-notify@v2
       env:
-        SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+          SLACK_MSG_AUTHOR: ${{ github.actor }}
+          SLACK_CHANNEL: '@ext-edik.mkoyan'
+          #SLACK_CHANNEL: ${{ steps.compute-slack-channel-name.outputs.cahnnel-name }}
+          SLACK_COLOR: ${{ job.status }}
+          SLACK_ICON: https://avatars.githubusercontent.com/u/44036562?s=280&v=4
+          SLACK_MESSAGE: ":bell: Publish a pre-release version of noranvtangutyun-node rpm :bell:"
+          SLACK_TITLE: noranvtangutyun-node rpm creation
+          SLACK_USERNAME: noranvtangutyun-node workflow
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}

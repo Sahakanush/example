@@ -10,11 +10,11 @@ jobs:
     - uses: actions/checkout@v2
     - name: Channel name
       run: |
-       # echo "github_actor=${{ github.actor }}" >> $GITHUB_ENV
-        echo "mail = ${{ github.event.pusher.email }}" >>  $GITHUB_ENV
-        echo "channel = $( echo ${{ env.mail }} | awk -F "@" '{ print $1 }' )" >>  $GITHUB_ENV
+        echo "github_actor=${{ github.actor }}" >> $GITHUB_ENV
+        echo "mail=${{ github.event.pusher.email }}" >> $GITHUB_ENV
+        echo "channel=$( echo ${{ env.mail }} | awk -F "@" '{ print $1 }' )" >> $GITHUB_ENV
     
-    #- run: echo ${{ env.github_actor }}
+    - run: echo ${{ env.github_actor }}
     - run: echo ${{ env.mail }}
     - run: echo ${{ env.channel }}
     

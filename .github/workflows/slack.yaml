@@ -13,7 +13,7 @@ jobs:
         echo "github_actor=${{ github.actor }}" >> $GITHUB_ENV
         echo "mail = ${{ github.event.pusher.email }}" >>  $GITHUB_ENV
         echo ${{ env.mail }} | awk -F "@" '{ print $1 }' > 
-        echo "channel = $( ${{ ${{ env.mail }} | awk -F "@" '{ print $1 }' )
+        echo "channel = $( ${{ env.mail }} | awk -F "@" '{ print $1 }' )
     
     - run: echo ${{ env.github_actor }}
     - run: echo ${{ env.mail }}

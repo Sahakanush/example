@@ -9,7 +9,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - run: echo "github_actor=${{ github.actor }}" >> $GENV
-    - run: echo ${{ GENV }}
+    - run: echo ${{ github_actor }}
     
     - name: Slack Notification
       uses: slackapi/slack-github-action@v1.23.0

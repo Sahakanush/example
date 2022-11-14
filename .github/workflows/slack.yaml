@@ -9,6 +9,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - run: echo "github_actor=${{ github.actor }}" >> $GITHUB_ENV
+    - run: echo ${{ github.event.pusher.email }}
     - run: echo ${{ env.github_actor }}
     
     - name: Slack Notification

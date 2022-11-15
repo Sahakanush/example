@@ -11,10 +11,13 @@ jobs:
       - name: Get Github Actor mail address
         id: channel
         run: |
-          #echo "mail_address=${{ github.event.pusher.email }}" >> $GITHUB_ENV
-          echo ${{ github.actor }} | awk -F "-" '{print ($1 == "ext" ? $1"-"$2"."$3 : $1)}' 
+          echo "mail_address=${{ github.event.pusher.email }}" >> $GITHUB_ENV
+         #echo ${{ github.actor }} | awk -F "-" '{print ($1 == "ext" ? $1"-"$2"."$3 : $1)}'>> $GITHUB_ENV
           
 
-      - run: echo ${{ steps.channel.outputs }}
+      - run: |
+         echo ${{ env.mail_address }}
+         echo ${{ $GITHUB_ENV }}
+         echo ${{ env.GITHUB_ENV }}
           
 

@@ -17,7 +17,6 @@ jobs:
 
       - run: |
          echo ${{ env.mail_address }}
-         echo ${{ $GITHUB_ENV }}
          echo ${{ env.GITHUB_ENV }}
           
 

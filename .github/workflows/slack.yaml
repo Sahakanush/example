@@ -1,6 +1,6 @@
 on: 
    push:
-   
+
 name: Slack Notification Demo
 jobs:
   slackNotification:
@@ -12,11 +12,11 @@ jobs:
         id: channel
         run: |
           echo "mail_address=${{ github.event.pusher.email }}" >> $GITHUB_ENV
-         #echo ${{ github.actor }} | awk -F "-" '{print ($1 == "ext" ? $1"-"$2"."$3 : $1)}'>> $GITHUB_ENV
+          echo "channel= ${{ github.actor }} | awk -F "-" '{print ($1 == "ext" ? $1"-"$2"."$3 : $1)}'" >> $GITHUB_ENV
           
 
       - run: |
-         #echo ${{ env.mail_address }}
-         echo ${{ env.GITHUB_ENV }}
+         echo ${{ env.channel }}
+
           
 

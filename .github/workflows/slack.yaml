@@ -7,43 +7,13 @@ jobs:
     name: Slack Notification
     runs-on: ubuntu-latest
     steps:
-      # - name: get email
-      #   id: get-email
-      #   uses: evvanErb/get-github-email-by-username-action@v1.25
-      #   with:
-      #     github-username: ${{ github.actor }}
-
-      # - name: compute slack channel name
-      #   id: compute-slack-channel-name
-      #   run: |
-      #     echo "::set-output name=cahnnel-name::$(echo ${{ steps.get-email.outputs.email }} | sed 's/@.*//')"
-      
-      # - uses: cinotify/github-action@main
-      #   with:
-      #     to: 'example@example.com'
-      #     subject: 'building main'
-      #     body: 'This is a notification from GitHub actions.'
       
       - name: Get Github Actor mail address
         run: |
-          echo "mail_address=${{ github.event.pusher.email }}" >> $GITHUB_ENV
+          #echo "mail_address=${{ github.event.pusher.email }}" >> $GITHUB_ENV
+          echo "channel_name=$( ${{ github.actor }} | awk -F "-" '{print ($1 == "ext" ? $1"-"$2"."$3 : $1)}' )" >> $GITHUB_ENV
           
-      - uses: jungwinter/split@v2
-        id: split
-        with:
-          msg: ${{ env.mail_address }}
-          separator: '@'
-      - run: echo ${{ env.mail_address }}
+
+      - run: echo ${{ env.channel_name }}
           
-      - name: Slack Notification
-        uses: rtCamp/action-slack-notify@v2
-        env:
-          SLACK_MSG_AUTHOR: ${{ github.actor }}
-          SLACK_CHANNEL: ${{ steps.split.outputs._0 }}
-          #SLACK_CHANNEL: ${{ steps.compute-slack-channel-name.outputs.cahnnel-name }}
-          SLACK_COLOR: ${{ job.status }}
-          SLACK_ICON: https://avatars.githubusercontent.com/u/44036562?s=280&v=4
-          SLACK_MESSAGE: ":bell: Publish a pre-release version of noranvtangutyun-node rpm :bell:"
-          SLACK_TITLE: noranvtangutyun-node rpm creation
-          SLACK_USERNAME: noranvtangutyun-node workflow
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+

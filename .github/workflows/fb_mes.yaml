@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-    - name: facebook-post-action
+    - name: facebook-post-action   
       uses: ReenigneArcher/facebook-post-action@v1
       with:
         page_id: ${{ secrets.FACEBOOK_PAGE_ID }}

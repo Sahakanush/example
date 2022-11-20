@@ -7,10 +7,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-    - name: send custom message
-      uses: appleboy/facebook-action@master
-      with: 
-        fb_page_token: ${{ secrets.FB_PAGE_TOKEN }}
-        fb_verify_token: ${{ secrets.FB_VERIFY_TOKEN }}
-        to: ${{ secrets.FB_TO }}
-        args: The ${{ github.event_name }} event triggered first step.
+    - name: facebook-post-action
+      uses: ReenigneArcher/facebook-post-action@v1
+      with:
+        page_id: ${{ secrets.FACEBOOK_PAGE_ID }}
+        access_token: ${{ secrets.FACEBOOK_ACCESS_TOKEN }}
+        message: "Message from github actions."
+        fail_on_eror: True

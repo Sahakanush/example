@@ -8,9 +8,10 @@ jobs:
     steps:
 
     - name: facebook-post-action   
-      uses: LuisAlejandro/fb-last-post-from-feed@0.2.0
-      env:
-          FACEBOOK_ACCESS_TOKEN: ${{ secrets.FACEBOOK_ACCESS_TOKEN }}
-          FACEBOOK_PAGE_ID: ${{ secrets.FACEBOOK_PAGE_ID }}
-          FEED_URL: ${{ secrets.FEED_URL }}
+      uses: appleboy/facebook-action@master
+      with:
+        fb_page_token: ${{ secrets.FB_PAGE_TOKEN }}
+        fb_verify_token: ${{ secrets.FB_VERIFY_TOKEN }}
+        to: ${{ secrets.FB_TO }}
+        args: The ${{ github.event_name }} event triggered first step.
 

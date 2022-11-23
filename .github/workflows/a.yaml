@@ -6,21 +6,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2   
-    - name: Post to a Slack channel
-      id: slack
-      uses: slackapi/slack-github-action@v1.23.0
+    - uses: MeilCli/slack-upload-file@v3
       with:
-        channel-id: 'as'
-        payload: |
-          {
-            "noranvtangutyun-logstash": "noranvtangutyun-logstash",
-            "noranvtangutyun-node-manager": "noranvtangutyun-node-manager",
-            "noranvtangutyun-responder": "noranvtangutyun-responder",
-            "packetbeat": "packetbeat",
-            "filebeat": "filebeat",
-            "published_by": "published-by",
-            "date-created": "date-created",
-            "download-url": "download-url"
-          }
-      env:
-        SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+          slack_token: ${{ secrets.SLACK_TOKEN }}
+          channel_id: 'as'
+          file_path: 'metadata_template.jq'
+          initial_comment: 'post by slack-upload-file'

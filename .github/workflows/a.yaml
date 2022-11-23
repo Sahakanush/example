@@ -1,4 +1,4 @@
-name: Slack Notification
+name: Slack Notification file
 on: push
 jobs:
   slackNotification:
@@ -20,3 +20,9 @@ jobs:
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
         SLACK_CHANNEL: 'as'
         SLACK_MESSAGE: "Message webhook url24"
+    - name: Upload to slack step
+      uses: adrey/slack-file-upload-action@master
+      with:
+          token: ${{ secrets.SLACK_BOT_TOKEN }}
+          path: ../metadata_template.jq
+          channel: as

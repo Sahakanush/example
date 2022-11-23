@@ -9,6 +9,6 @@ jobs:
     - uses: MeilCli/slack-upload-file@v3  
       with:  
           slack_token: ${{ secrets.SLACK_BOT_TOKEN }}
-          channel_id: 'C043A8RKF2M'
+          channel_id: 'C042XM00EV9'
           file_path: 'metadata_template.jq'
           initial_comment: 'post by slack-upload-file'

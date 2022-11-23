@@ -1,7 +1,7 @@
 name: Slack Notification file
 on: push
 jobs:
-  slackNotification:
+  slackNotification:   
     name: Slack Notification
     runs-on: ubuntu-latest
     steps:

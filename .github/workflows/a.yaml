@@ -7,7 +7,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2      
     - uses: MeilCli/slack-upload-file@v3  
-      with:
+      with:  
           slack_token: ${{ secrets.SLACK_BOT_TOKEN }}
           channel_id: 'C042XM00EV9'
           file_path: 'metadata_template.jq'

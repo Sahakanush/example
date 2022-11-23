@@ -24,5 +24,5 @@ jobs:
       uses: adrey/slack-file-upload-action@master
       with:
           token: ${{ secrets.SLACK_BOT_TOKEN }}
-          path: ../metadata_template.jq
+          path: .github/metadata_template.jq
           channel: as

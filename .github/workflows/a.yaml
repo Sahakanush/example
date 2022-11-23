@@ -5,10 +5,16 @@ jobs:
     name: Slack Notification
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2      
-    - uses: MeilCli/slack-upload-file@v3  
-      with:  
-          slack_token: ${{ secrets.SLACK_BOT_TOKEN }}
-          channel_id: 'C042XM00EV9'
-          file_path: 'metadata_template.jq'
-          initial_comment: 'post by slack-upload-file'
+    - uses: actions/checkout@v2 
+    - name: Upload to slack step
+      uses: adrey/slack-file-upload-action@master
+      with:
+          token: ${{ secrets.SLACK_BOT_TOKEN }}
+          path: 'metadata_template.jq'
+          channel: 'C042XM00EV9'
+   # - uses: MeilCli/slack-upload-file@v3  
+   #   with:  
+    #      slack_token: ${{ secrets.SLACK_BOT_TOKEN }}
+    #      channel_id: 'C042XM00EV9'
+   #       file_path: 'metadata_template.jq'
+   #       initial_comment: 'post by slack-upload-file'

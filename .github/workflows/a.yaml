@@ -10,7 +10,7 @@ jobs:
       uses: adrey/slack-file-upload-action@master
       with:
           token: ${{ secrets.SLACK_BOT_TOKEN }}
-          channel: as
+          channel: devops
           path: .github/metadata_template.jq
           initial_comment: 'Upload json file.'
           filename: metadata_template.jq

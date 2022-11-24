@@ -14,7 +14,7 @@ jobs:
           path: metadata_template.jq
           initial_comment: 'Upload json file.'
           filename: metadata_template.jq
-          filetype: js
+          filetype: json
 
 
    # - uses: MeilCli/slack-upload-file@v3  

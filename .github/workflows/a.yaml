@@ -10,8 +10,11 @@ jobs:
       uses: adrey/slack-file-upload-action@master
       with:
           token: ${{ secrets.SLACK_BOT_TOKEN }}
-          path: metadata_template.jq
           channel: as
+          initial_comment: 'Upload json file.'
+          filename: metadata
+          path: metadata_template.jq
+          title: XXX
    # - uses: MeilCli/slack-upload-file@v3  
    #   with:  
     #      slack_token: ${{ secrets.SLACK_BOT_TOKEN }}

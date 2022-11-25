@@ -1,4 +1,4 @@
-name: configuration
+name: configurationf1
 
 on:
   pull_request:

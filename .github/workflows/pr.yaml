@@ -30,7 +30,7 @@ jobs:
         id: tag_version_o
         with:
           github_token: ${{ secrets.GIT_TOKEN }}
-          append_to_pre_release_tag: RC
+          append_to_pre_release_tag: 'RC'
           tag_prefix: ''  
           
       - name: Create tag pr closed

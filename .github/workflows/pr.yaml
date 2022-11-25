@@ -3,6 +3,7 @@ name: configuration
 on:
   pull_request:
     types: [opened, closed]
+    branches: main
     
 jobs:    
   Tag_operations:

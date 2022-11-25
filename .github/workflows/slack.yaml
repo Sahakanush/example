@@ -1,0 +1,20 @@
+on: 
+   push:
+
+name: Slack Notification Demo
+jobs:
+  slackNotification:
+    name: Slack Notification
+    runs-on: ubuntu-latest
+    steps:
+      
+      - name: Get Github Actor channel
+        id: channel
+        run: |
+          echo channel_name=$(echo ${{ github.actor }} | awk -F "-" '{print ($1 == "ext" ? $1"-"$2"."$3 : $1)}') >> $GITHUB_OUTPUT
+   
+      - run: |
+         echo ${{ steps.channel.outputs.channel_name }}
+
+          
+

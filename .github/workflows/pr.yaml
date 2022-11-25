@@ -52,7 +52,7 @@ jobs:
         id: get_tag
         run: echo "::set-output name=tag::${{env.git_tag}}"
         
- Docker_operations:
+  Docker_operations:
     runs-on: ubuntu-latest    
     needs: Tag_operations
     steps:

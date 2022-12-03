@@ -27,7 +27,7 @@ jobs:
 
       - name: Build
         run: |
-          go mod init 
+          go mod init example.com/m/v2
           go build -v ./...
 
       - run: go version

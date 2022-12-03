@@ -19,7 +19,7 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v3
       - run: |
-              sudo apt install gccgo-go
-              git clone https://github.com/go-training/helloworld.git
+             sudo apt install gccgo-go
+             git clone https://github.com/go-training/helloworld.git
         env:
           LEVEL: ${{ inputs.versions}}

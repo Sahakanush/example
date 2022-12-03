@@ -13,17 +13,13 @@ on:
         - 1.18.7
         
 jobs:
-  log-the-inputs:
+  version-the-inputs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
         uses: actions/checkout@v3
-       - run: |
+      - run: |
               sudo apt install gccgo-go
               git clone https://github.com/go-training/helloworld.git
-              go run main.go
-              go test
-              go test
-              go install
         env:
           LEVEL: ${{ inputs.versions}}

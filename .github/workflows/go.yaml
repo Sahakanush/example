@@ -29,3 +29,5 @@ jobs:
         run: go build -v ./...
 
       - run: go version
+      - name: Check the content
+        run: ls -l

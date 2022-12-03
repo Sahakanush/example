@@ -5,7 +5,7 @@ on:
       go_version:
         description: 'versions'
         required: true
-        default: '1.19.3'
+        default: '1.18.8'
         type: choice
         options:
         - 1.19.3

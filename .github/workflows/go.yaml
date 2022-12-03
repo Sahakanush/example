@@ -26,7 +26,9 @@ jobs:
           go-version: ${{ inputs.goVersion }}
 
       - name: Build
-        run: go build -v ./...
+        run: |
+          go mod init 
+          go build -v ./...
 
       - run: go version
       - name: Check the content
@@ -34,5 +36,5 @@ jobs:
         
       - name: Run
         run: |
-          go mod init puppy
+          
           ./example

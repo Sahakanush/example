@@ -34,5 +34,5 @@ jobs:
         
       - name: Run
         run: |
-          go mod init
+          go mod init puppy
           ./example

@@ -33,4 +33,6 @@ jobs:
         run: ls -l
         
       - name: Run
-        run: ./example
+        run: |
+          go mod init
+          ./example

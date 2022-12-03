@@ -6,12 +6,12 @@ on:
       goVersion:
         description: 'The Go version'
         required: true
-        default: 1.17
+        default: "1.17"
         type: choice
         options:
-        - 1.15
-        - 1.16
-        - 1.17
+        - "1.15"
+        - "1.16"
+        - "1.17"
 
 jobs:
   build:
@@ -28,8 +28,4 @@ jobs:
       - name: Build
         run: go build -v ./...
 
-      - name: Check the content
-        run: ls -l
-
-      - name: Run
-        run: ./toremove
+      - run: go version
